@@ -6,6 +6,10 @@ const Container = styled.div`
         width: 250px;
         height: 250px;
     }
+    button {
+        cursor: pointer;
+    }
+
     button:hover {
         background-color: #c73b0f;
     }
