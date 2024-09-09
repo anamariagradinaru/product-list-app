@@ -4,21 +4,34 @@ import { useState } from 'react';
 
 interface Props {
     image: string;
-    text: string;
+    text: number;
     heading: string;
+    id: number;
     setProductList: React.Dispatch<
         React.SetStateAction<
-            Array<{ image: string; heading: string; text: string }>
+            Array<{ image: string; heading: string; text: number; id: number }>
         >
     >;
-    productList: Array<{ image: string; heading: string; text: string }>;
+    productList: Array<{
+        image: string;
+        heading: string;
+        text: number;
+        id: number;
+    }>;
 }
-const Card = ({ image, text, heading, setProductList, productList }: Props) => {
+const Card = ({
+    image,
+    text,
+    heading,
+    id,
+    setProductList,
+    productList,
+}: Props) => {
     const [isFirstButton, setIsFirstButton] = useState(true);
 
     const toggleButton = () => {
         setIsFirstButton(!isFirstButton);
-        setProductList([...productList, { image, text, heading }]);
+        setProductList([...productList, { image, text, heading, id }]);
     };
 
     return (

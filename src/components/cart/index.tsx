@@ -4,13 +4,28 @@ import Container from './index.styled';
 interface Props {
     setProductList: React.Dispatch<
         React.SetStateAction<
-            Array<{ image: string; heading: string; text: string }>
+            Array<{ image: string; heading: string; text: number; id: number }>
         >
     >;
-    productList: Array<{ image: string; heading: string; text: string }>;
+    productList: Array<{
+        image: string;
+        heading: string;
+        text: number;
+        id: number;
+    }>;
 }
 
-const Cart = ({ productList }: Props) => {
+const Cart = ({ productList, setProductList }: Props) => {
+    const calculateTotal = () => {
+        let total = 0;
+        for (let i = 0; i < productList.length; i++) {
+            total += productList[i].text;
+        }
+        return total;
+    };
+    const handleDelete = (id: number) => {
+        setProductList(productList.filter((product) => product.id !== id));
+    };
     return (
         <Container>
             <Heading marginLeft={'20px'} marginTop={'20px'} color={'#C73B0F'}>
@@ -37,6 +52,7 @@ const Cart = ({ productList }: Props) => {
                                 </Flex>
 
                                 <Button
+                                    onClick={() => handleDelete(product.id)}
                                     width={'20px'}
                                     backgroundColor={'#fff'}
                                     border={'1px solid #AD8A85'}
@@ -63,9 +79,9 @@ const Cart = ({ productList }: Props) => {
                 justifyContent={'space-between'}
             >
                 <Text color={'#260F08'} fontSize={'18px'}>
-                    Total:{' '}
+                    TOTAL : ${calculateTotal()}
                 </Text>
-                <Heading fontSize={'24px'}>80 lei</Heading>
+                <Heading fontSize={'24px'}></Heading>
             </Flex>
             <Button
                 marginLeft={'15px'}

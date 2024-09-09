@@ -5,10 +5,15 @@ import Card from '../card';
 interface Props {
     setProductList: React.Dispatch<
         React.SetStateAction<
-            Array<{ image: string; heading: string; text: string }>
+            Array<{ image: string; heading: string; text: number; id: number }>
         >
     >;
-    productList: Array<{ image: string; heading: string; text: string }>;
+    productList: Array<{
+        image: string;
+        heading: string;
+        text: number;
+        id: number;
+    }>;
 }
 const CardList = ({ setProductList, productList }: Props) => {
     return (
@@ -19,7 +24,7 @@ const CardList = ({ setProductList, productList }: Props) => {
                         image={value.IMAGE_URL}
                         text={value.PRICE}
                         heading={value.NAME}
-                        key={value.KEY}
+                        id={value.ID}
                         setProductList={setProductList}
                         productList={productList}
                     />
