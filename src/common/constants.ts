@@ -6,6 +6,7 @@ const CONSTANTS = {
             PRICE: 10 ,
             PRICE_UNIT:'lei/100g',
             ID:1,
+            AMOUNT: 1,
         },
         {
             IMAGE_URL: '/images/product2.jpg',
@@ -13,6 +14,7 @@ const CONSTANTS = {
             PRICE: 2 ,
             PRICE_UNIT:'lei/buc',
             ID: 2,
+            AMOUNT: 1,
         },
         {
             IMAGE_URL: '/images/product3.jpg',
@@ -20,6 +22,7 @@ const CONSTANTS = {
             PRICE: 12 ,
             PRICE_UNIT:'lei/250g',
             ID: 3,
+            AMOUNT: 1,
         },
         {
             IMAGE_URL: '/images/product4.jpg',
@@ -27,6 +30,7 @@ const CONSTANTS = {
             PRICE: 12,
             PRICE_UNIT:'lei/100g',
             ID: 4,
+            AMOUNT: 1,
         },
         {
             IMAGE_URL: '/images/product5.jpg',
@@ -34,6 +38,7 @@ const CONSTANTS = {
             PRICE: 8 ,
             PRICE_UNIT:'lei/100g',
             ID: 5,
+            AMOUNT: 1,
         },
         {
             IMAGE_URL: '/images/product6.jpg',
@@ -41,6 +46,7 @@ const CONSTANTS = {
             PRICE: 10 ,
             PRICE_UNIT:'lei/100g',
             ID: 6,
+            AMOUNT: 1,
         },
         {
             IMAGE_URL: '/images/product7.jpg',
@@ -48,6 +54,7 @@ const CONSTANTS = {
             PRICE: 10 ,
             PRICE_UNIT:'lei/100g',
             ID: 7,
+            AMOUNT: 1,
         },
         {
             IMAGE_URL: '/images/product8.jpg',
@@ -55,6 +62,7 @@ const CONSTANTS = {
             PRICE: 12 ,
             PRICE_UNIT:'lei/100g',
             ID: 8,
+            AMOUNT: 1,
         },
         {
             IMAGE_URL: '/images/product9.jpg',
@@ -62,6 +70,7 @@ const CONSTANTS = {
             PRICE: 12 ,
             PRICE_UNIT:'lei/100g',
             ID: 9,
+            AMOUNT: 1,
         },
     ],
 };

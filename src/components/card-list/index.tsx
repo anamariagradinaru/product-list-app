@@ -5,7 +5,13 @@ import Card from '../card';
 interface Props {
     setProductList: React.Dispatch<
         React.SetStateAction<
-            Array<{ image: string; heading: string; text: number; id: number }>
+            Array<{
+                image: string;
+                heading: string;
+                text: number;
+                id: number;
+                amount: number;
+            }>
         >
     >;
     productList: Array<{
@@ -13,6 +19,7 @@ interface Props {
         heading: string;
         text: number;
         id: number;
+        amount: number;
     }>;
 }
 const CardList = ({ setProductList, productList }: Props) => {
@@ -27,6 +34,7 @@ const CardList = ({ setProductList, productList }: Props) => {
                         id={value.ID}
                         setProductList={setProductList}
                         productList={productList}
+                        amount={value.AMOUNT}
                     />
                 );
             })}

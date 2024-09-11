@@ -7,9 +7,16 @@ interface Props {
     text: number;
     heading: string;
     id: number;
+    amount: number;
     setProductList: React.Dispatch<
         React.SetStateAction<
-            Array<{ image: string; heading: string; text: number; id: number }>
+            Array<{
+                image: string;
+                heading: string;
+                text: number;
+                id: number;
+                amount: number;
+            }>
         >
     >;
     productList: Array<{
@@ -17,6 +24,7 @@ interface Props {
         heading: string;
         text: number;
         id: number;
+        amount: number;
     }>;
 }
 const Card = ({
@@ -24,14 +32,36 @@ const Card = ({
     text,
     heading,
     id,
+    amount,
     setProductList,
     productList,
 }: Props) => {
     const [isFirstButton, setIsFirstButton] = useState(true);
 
-    const toggleButton = () => {
+    const handleClick = () => {
         setIsFirstButton(!isFirstButton);
-        setProductList([...productList, { image, text, heading, id }]);
+        setProductList([...productList, { image, text, heading, id, amount }]);
+    };
+
+    const handleIncreaseClick = () => {
+        const newProductList = productList.map((value) => {
+            if (value.id === id) {
+                return { ...value, amount: value.amount + 1 };
+            }
+            return value;
+        });
+
+        setProductList(newProductList);
+    };
+    const handleDecreaseClick = () => {
+        const newProductList = productList.map((value) => {
+            if (value.id === id) {
+                return { ...value, amount: value.amount - 1 };
+            }
+            return value;
+        });
+
+        setProductList(newProductList);
     };
 
     return (
@@ -40,7 +70,7 @@ const Card = ({
                 <img src={image} />
                 {isFirstButton ? (
                     <Button
-                        onClick={toggleButton}
+                        onClick={handleClick}
                         cursor={'pointer'}
                         backgroundColor={'#fff'}
                         color={'#260F08'}
@@ -53,8 +83,7 @@ const Card = ({
                     </Button>
                 ) : (
                     <Button
-                        onClick={toggleButton}
-                        cursor={'pointer'}
+                        backgroundColor={'#C73B0F'}
                         color={'#260F08'}
                         borderRadius={'50px '}
                         border={'1px solid #AD8A85'}
@@ -68,18 +97,24 @@ const Card = ({
                                 color={'white'}
                                 border={'1px solid white'}
                                 borderRadius={'50%'}
+                                onClick={handleDecreaseClick}
                             >
-                                +
+                                -
                             </Button>
-                            <Heading color={'#fff'}> 1 </Heading>
+                            <Heading color={'#fff'}>
+                                {productList.map((value) => {
+                                    return value.amount;
+                                })}
+                            </Heading>
                             <Button
                                 width={'20px'}
                                 backgroundColor={'#C73B0F'}
                                 color={'white'}
                                 border={'1px solid white'}
                                 borderRadius={'50%'}
+                                onClick={handleIncreaseClick}
                             >
-                                -
+                                +
                             </Button>
                         </Flex>
                     </Button>

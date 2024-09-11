@@ -9,10 +9,6 @@ const Container = styled.div`
     button {
         cursor: pointer;
     }
-
-    button:hover {
-        background-color: #c73b0f;
-    }
 `;
 
 export default Container;

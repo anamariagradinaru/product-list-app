@@ -4,7 +4,13 @@ import Container from './index.styled';
 interface Props {
     setProductList: React.Dispatch<
         React.SetStateAction<
-            Array<{ image: string; heading: string; text: number; id: number }>
+            Array<{
+                image: string;
+                heading: string;
+                text: number;
+                id: number;
+                amount: number;
+            }>
         >
     >;
     productList: Array<{
@@ -12,6 +18,7 @@ interface Props {
         heading: string;
         text: number;
         id: number;
+        amount: number;
     }>;
 }
 
@@ -19,7 +26,7 @@ const Cart = ({ productList, setProductList }: Props) => {
     const calculateTotal = () => {
         let total = 0;
         for (let i = 0; i < productList.length; i++) {
-            total += productList[i].text;
+            total += productList[i].text * productList[i].amount;
         }
         return total;
     };
@@ -46,7 +53,7 @@ const Cart = ({ productList, setProductList }: Props) => {
                             <Flex justifyContent={'space-between'}>
                                 <Flex gap={'16px'}>
                                     <Heading color={'red'} fontSize={'15px'}>
-                                        1x
+                                        {product.amount}x
                                     </Heading>
                                     <Text color={'gray'}>{product.text}</Text>
                                 </Flex>

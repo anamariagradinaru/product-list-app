@@ -6,7 +6,13 @@ import { useState } from 'react';
 
 function App() {
     const [productList, setProductList] = useState<
-        Array<{ image: string; heading: string; text: number; id: number }>
+        Array<{
+            image: string;
+            heading: string;
+            text: number;
+            id: number;
+            amount: number;
+        }>
     >([]);
     console.log(productList);
     return (
